@@ -99,15 +99,17 @@ public class US07_StepDefs extends BookPage {
 
     @And("verify logged student has same book in database")
     public void verifyLoggedStudentHasSameBookInDatabase() {
-        DB_Util.runQuery("select name,is_returned,email from book_borrow join books b on \n" +
-                "    b.id = book_borrow.book_id join users u on u.id = book_borrow.user_id\n" +
-                "where name='" + bookName1 + "'\n" +
-                "and is_returned='0'" +
-                "and email='" + ConfigurationReader.getProperty("student_username") + "'");
+
+        DB_Util.runQuery("select name,is_returned,email from book_borrow join books b on\n" +
+                "                 b.id = book_borrow.book_id join users u on u.id = book_borrow.user_id\n" +
+                "                where name='Head First Java'\n" +
+                "                and is_returned='0'\n" +
+                "                and email='student5@library'");
 
         String email = DB_Util.getCellValue(1, "email");
         System.out.println(email);
         Assert.assertEquals(email, ConfigurationReader.getProperty("student_username"));
+
 
     }
 

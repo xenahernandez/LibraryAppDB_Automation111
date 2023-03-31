@@ -59,7 +59,12 @@ public class BookPage extends BasePage {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
+//search by empty text
+public WebElement borrowBook(){
 
+        String xpath = "//tbody//td[7][not(text())]/../td/a";
+        return Driver.getDriver().findElement(By.xpath(xpath));
 
+}
 
 }
