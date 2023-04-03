@@ -31,11 +31,11 @@ public class US07_StepDefs extends BookPage {
         loginPage.login(login);
     }
 
+
     @And("the user navigates to {string} page")
     public void theUserNavigatesToPage(String moduleName) {
 
         navigateModule(moduleName);
-
 
     }
 
